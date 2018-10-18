@@ -299,39 +299,15 @@
 
       
         
-          
-            <ul>
+          <ul>
 <li><p>各个文件夹的作用：</p>
-<ol>
-<li>node_modules文件夹中的内容是整个hexo的依赖包，这个一般情况下不需要去做任何增删改。</li>
-<li>public文件夹其实是当我们执行<code>hexo generate</code>命令之后由hexo根据我们的主题以及文章内容生成的一个文件。打开之后可以看到对应的时间我们写的博客内容。</li>
-<li>scaffolds其实就是脚手架的意思，有些人也称之为模板，其实就是我们新生成一篇文章时从哪个模板来生成。这里面默认只有三个模板，draft, page, post，我们生成文章是可以指定采用哪个模板。</li>
-<li>source是资源文件夹包含所有建立的文件和themes子文件夹是主题文件夹。</li>
-<li>_config.yml文件，这个其实是我们整个主目录的配置，只需要更改少量的键值对内容就可以对整个主目录和网页进行变更了。</li>
-</ol>
-</li>
-<li><p><code>hexo generate</code>执行过程</p>
-<p>执行后hexo根据source中的_post文件夹中的markdown文件生成html文件放入public中以时间命名的文件夹里（例如：2018/10/17）其余文件被copy到public文件夹中。</p>
-</li>
-<li><p>_config.yml文件中post_asset_folder 是什么？</p>
-<p>资源（Asset）代表 <code>source</code> 文件夹中除了文章以外的所有文件，例如图片、CSS、JS 文件等。比方说，如果你的Hexo项目中只有少量图片，那最简单的方法就是将它们放在 <code>source/images</code> 文件夹中。然后通过类似于 <code>![](/images/image.jpg)</code> 的方法访问它们。</p>
-<p>对于那些想要更有规律地提供图片和其他资源以及想要将他们的资源分布在各个文章上的人来说，Hexo也提供了更组织化的方式来管理资源。这个稍微有些复杂但是管理资源非常方便的功能可以通过将 <code>config.yml</code>文件中的 <code>post_asset_folder</code> 选项设为 <code>true</code> 来打开。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_config.ymlpost_asset_folder: true</span><br></pre></td></tr></table></figure>
-<p>当资源文件管理功能打开后，Hexo将会在你每一次通过 <code>hexo new [layout] &lt;title&gt;</code> 命令创建新文章时自动创建一个文件夹。这个资源文件夹将会有与这个 markdown 文件一样的名字。将所有与你的文章有关的资源放在这个关联文件夹中之后，当输入<code>hexo generate</code>后，hexo会将该资源文件夹中的所有内容都放入public中以时间命名的文件夹里（例如：2018/10/17），与index.html文件在一起，可以通过相对路径来引用它们，这样你就得到了一个更简单而且方便得多的工作流。</p>
-<h2 id="图片插入方法"><a href="#图片插入方法" class="headerlink" title="图片插入方法"></a>图片插入方法</h2><p>图片插入方法有两种，一是通过标签插件，例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`&#123;% asset_path slug %&#125;&#123;% asset_img slug [title] %&#125;&#123;% asset_link slug [title] %&#125;`</span><br></pre></td></tr></table></figure>
-<p>二是直接通过markdown语法来插入。</p>
-<p>其中通过标签插件插入图片可直接用绝对路径，具体方法参见<a href="https://hexo.io/zh-cn/docs/tag-plugins" target="_blank" rel="noopener">标签插件</a></p>
-<p>在此不赘述，下面重点讲通过markdown语法来插入。</p>
-<p>方法有两种：</p>
-<p>其一：<code>post_asset_folder</code> 设置为<code>false</code>代表资源文件夹功能未开，此时可以将它们放在 <code>source/images</code> 文件夹中。然后通过类似于 <code>![](/images/image.jpg)</code> 的方法访问它们。这种方法的原理是，执行 <code>hexo g</code> 之后，hexo会将source文件夹中的所有文件copy到public中（除了_post文件夹）而相对地址的root目录默认为<code>public</code> ，主页的index与文章页的index生成时都不会改变相对地址，所以此时主页和文章详情页都可以看到图片。</p>
-<p>其二：<code>post_asset_folder</code> 设置为<code>true</code> 时，此时代表资源文件夹功能已开，Hexo将会在你每一次通过 <code>hexo new [layout] &lt;title&gt;</code> 命令创建新文章时自动创建一个文件夹。这个资源文件夹将会有与这个 markdown 文件一样的名字。此时将所有与你的文章有关的资源放在这个关联文件夹中之后，当输入<code>hexo generate</code>后，hexo会将该资源文件夹中的所有内容都放入public中以时间命名的文件夹里（例如：2018/10/17），与index.html文件在一起。</p>
-<p>做法：可以直接通过图片名来插入图片。</p>
-<p>原理：此时hexo根据markdown生成HTML文件时，会自动在HTML文件中你定义的图片路径之前加入 <code>/时间/name/</code> （例如：/2018/10/17/关于在hexo中图片的插入与引用/），此时即可直接访问图片。</p>
-</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/17/关于hexo中图片的插入与引用/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -448,11 +424,14 @@
 
       
         
-          
-            <p>征程再起，希望能在此真正的踏入计算机科学的大门，丘壑万千，登堂入室，<strong>仰之弥高，钻之弥坚</strong>。</p>
-<p><img src="/img/Knuth.jpeg" alt=""></p>
-
-          
+          <p>征程再起，希望能在此真正的踏入计算机科学的大门，丘壑万千，登堂入室，<strong>仰之弥高，钻之弥坚</strong>。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/16/Journey/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -569,18 +548,14 @@
 
       
         
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
+          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/16/hello-world/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
