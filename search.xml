@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[hexo新建菜单流程]]></title>
+    <url>%2F2018%2F11%2F06%2Fhexo%E6%96%B0%E5%BB%BA%E8%8F%9C%E5%8D%95%E6%B5%81%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[1.步骤以要 新建 categories 菜单项为例。 1.在命令提示窗口中 输入hexo new page &quot;categories&quot;，此时会提示：Create：\source\categories\index.md 2.打开第一步生成的文件 index.md ，新建 type 属性，并赋值：type：”categories“ 3.在主题配置文件中找到 menu开关：为其赋值为 categories categories: /categories/ || th 4.在命令提示窗口中 输入hexo g即可生成文件，然后 hexo s或hexo d部署到本地或者服务器上即可。 2.原理解释1.第一步中的hexo new page &quot;categories&quot; 是新建模板文件，Hexo 会根据 scaffolds文件夹内相对应的文件来建立文件，例如：$ hexo new photo My Gallery 在执行这行指令时，Hexo 会尝试在 scaffolds文件夹中寻找 photo.md，并根据其内容建立文章。 以 post 模板为例： title: hexo新建菜单流程date: 1541491861000categories:tags: 利用post模板新建的文件，头部会有这四个变量，其中categories和tags变量为空，title变量和date变量是hexo命令中传入的参数。例如：输入 hexo new &quot;test&quot;（若无指定模板则默认为为 post模板）则会生成如下的markdown文件。 title: hexo新建菜单流程date: 2018-11-06 16:11:01categories: tags： 可在模板中使用的变量（即传入的参数&amp;#123; &amp;#125）有： layou：布局 title：文章题目 data：文件建立时间 所以执行完 hexo new page &quot;categories&quot;，此时source文件下会新建\categories\index.md 2.第二步添加 type属性是为了告诉hexo 此按钮是分类按钮，若无此标签点击分类按钮则只会出现一个标题。 3.第三步是在主题menu配置中打开分类按钮.相当于为按钮绑定事件（即：URL） categories: /categories/ || th 也就是说点击此按钮（显示时zh-Hans文件已把categories翻译为中文）会跳转到public文件下的/categorites/index.html 文件上（public为site根目录） 4.输入hexo ghexo会把source中的markdown文件解释到（生成HTML）public文件夹下，其余文件copy到public文件夹下，即:/source/categories/index.md文件会生成为：/public/categories/index.html 同时由于md文件属性type为categories,所以会生成若干个文件夹，每个文件夹以现有的分类名字命名，每个文件夹下包含该分类内所有的文章index.html。此时点击分类按钮就会访问 /categorites/index.html 即：我们在主题menu配置中为categories变量绑定的URL。 文章参考：https://www.jianshu.com/p/5d5931289c09]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[关于hexo中图片的插入与引用]]></title>
+    <url>%2F2018%2F10%2F17%2F%E5%85%B3%E4%BA%8Ehexo%E4%B8%AD%E5%9B%BE%E7%89%87%E7%9A%84%E6%8F%92%E5%85%A5%E4%B8%8E%E5%BC%95%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[各个文件夹的作用： node_modules文件夹中的内容是整个hexo的依赖包，这个一般情况下不需要去做任何增删改。 public文件夹其实是当我们执行hexo generate命令之后由hexo根据我们的主题以及文章内容生成的一个文件。打开之后可以看到对应的时间我们写的博客内容。 scaffolds其实就是脚手架的意思，有些人也称之为模板，其实就是我们新生成一篇文章时从哪个模板来生成。这里面默认只有三个模板，draft, page, post，我们生成文章是可以指定采用哪个模板。 source是资源文件夹包含所有建立的文件和themes子文件夹是主题文件夹。 _config.yml文件，这个其实是我们整个主目录的配置，只需要更改少量的键值对内容就可以对整个主目录和网页进行变更了。 hexo generate执行过程 执行后hexo根据source中的_post文件夹中的markdown文件生成html文件放入public中以时间命名的文件夹里（例如：2018/10/17）其余文件被copy到public文件夹中。 _config.yml文件中post_asset_folder 是什么？ 资源（Asset）代表 source 文件夹中除了文章以外的所有文件，例如图片、CSS、JS 文件等。比方说，如果你的Hexo项目中只有少量图片，那最简单的方法就是将它们放在 source/images 文件夹中。然后通过类似于 ![](/images/image.jpg) 的方法访问它们。 对于那些想要更有规律地提供图片和其他资源以及想要将他们的资源分布在各个文章上的人来说，Hexo也提供了更组织化的方式来管理资源。这个稍微有些复杂但是管理资源非常方便的功能可以通过将 config.yml文件中的 post_asset_folder 选项设为 true 来打开。 1_config.ymlpost_asset_folder: true 当资源文件管理功能打开后，Hexo将会在你每一次通过 hexo new [layout] &lt;title&gt; 命令创建新文章时自动创建一个文件夹。这个资源文件夹将会有与这个 markdown 文件一样的名字。将所有与你的文章有关的资源放在这个关联文件夹中之后，当输入hexo generate后，hexo会将该资源文件夹中的所有内容都放入public中以时间命名的文件夹里（例如：2018/10/17），与index.html文件在一起，可以通过相对路径来引用它们，这样你就得到了一个更简单而且方便得多的工作流。 图片插入方法图片插入方法有两种，一是通过标签插件，例如： 1`&#123;% asset_path slug %&#125;&#123;% asset_img slug [title] %&#125;&#123;% asset_link slug [title] %&#125;` 二是直接通过markdown语法来插入。 其中通过标签插件插入图片可直接用绝对路径，具体方法参见标签插件 在此不赘述，下面重点讲通过markdown语法来插入。 方法有两种： 其一：post_asset_folder 设置为false代表资源文件夹功能未开，此时可以将它们放在 source/images 文件夹中。然后通过类似于 ![](/images/image.jpg) 的方法访问它们。这种方法的原理是，执行 hexo g 之后，hexo会将source文件夹中的所有文件copy到public中（除了_post文件夹）而相对地址的root目录默认为public ，主页的index与文章页的index生成时都不会改变相对地址，所以此时主页和文章详情页都可以看到图片。 其二：post_asset_folder 设置为true 时，此时代表资源文件夹功能已开，Hexo将会在你每一次通过 hexo new [layout] &lt;title&gt; 命令创建新文章时自动创建一个文件夹。这个资源文件夹将会有与这个 markdown 文件一样的名字。此时将所有与你的文章有关的资源放在这个关联文件夹中之后，当输入hexo generate后，hexo会将该资源文件夹中的所有内容都放入public中以时间命名的文件夹里（例如：2018/10/17），与index.html文件在一起。 做法：可以直接通过图片名来插入图片。 原理：此时hexo根据markdown生成HTML文件时，会自动在HTML文件中你定义的图片路径之前加入 /时间/name/ （例如：/2018/10/17/关于在hexo中图片的插入与引用/），此时即可直接访问图片。]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[The new Journey]]></title>
+    <url>%2F2018%2F10%2F16%2FJourney%2F</url>
+    <content type="text"><![CDATA[征程再起，希望能在此真正的踏入计算机科学的大门，丘壑万千，登堂入室，仰之弥高，钻之弥坚。]]></content>
+      <tags>
+        <tag>Dairy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2018%2F10%2F16%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>
