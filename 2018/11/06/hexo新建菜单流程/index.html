@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Changer">
 <meta property="og:description" content="1.步骤以要 新建 categories 菜单项为例。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-06T09:13:41.558Z">
+<meta property="og:updated_time" content="2018-11-06T09:20:57.628Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo新建菜单流程">
 <meta name="twitter:description" content="1.步骤以要 新建 categories 菜单项为例。">
@@ -187,16 +187,6 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
           </a>
         </li>
       
@@ -406,7 +396,7 @@
 <p>  <code>categories: /categories/ || th</code></p>
 <p>也就是说点击此按钮（显示时zh-Hans文件已把categories翻译为中文）会跳转到public文件下的<code>/categorites/index.html</code> 文件上（public为site根目录）</p>
 <p>4.输入<code>hexo g</code>hexo会把source中的markdown文件解释到（生成HTML）public文件夹下，其余文件copy到public文件夹下，即<code>:/source/categories/index.md</code>文件会生成为：<code>/public/categories/index.html</code></p>
-<p>同时由于md文件属性type为categories,所以会生成若干个文件夹，每个文件夹以现有的分类名字命名，每个文件夹下包含该分类内所有的文章index.html。此时点击分类按钮就会访问</p>
+<p>同时由于md文件属性type为categories,所以会生成若干个文件夹，每个文件夹以现有的分类名字命名，每个文件夹下包含一个index.html，此文件即为点击相应分类时出现的列表页面。此时点击分类按钮就会访问</p>
 <p><code>/categorites/index.html</code></p>
 <p>即：我们在主题menu配置中为categories变量绑定的URL。</p>
 <p>文章参考：<a href="https://www.jianshu.com/p/5d5931289c09" target="_blank" rel="noopener">https://www.jianshu.com/p/5d5931289c09</a></p>
@@ -419,6 +409,30 @@
 
     
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果喜欢这篇文章，不如请我喝瓶阔落：）</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat.png" alt="Yi Jinglong 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
