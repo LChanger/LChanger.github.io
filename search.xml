@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[如何将本科计算机专业课程串成体系]]></title>
+    <url>%2F2018%2F11%2F29%2F%E5%A6%82%E4%BD%95%E5%B0%86%E6%9C%AC%E7%A7%91%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%93%E4%B8%9A%E8%AF%BE%E7%A8%8B%E4%B8%B2%E6%88%90%E4%BD%93%E7%B3%BB%2F</url>
+    <content type="text"><![CDATA[​ 从大学入学至今已近四年，我国现有的本科计算机专业培养方案所应授的课程我们已经全部学完。但是现在让我说出这些课程有什么内在联系，一时半会儿仍难以形成一个体系，总是不够全面、系统、条理化。 所以今晚特地抽出时间，画了一张图，按照自己的理解，将现在所学的所有课程串起来，以求形成一个体系，一来这样有利于对整个计算机系统的理解更便于以后的学习；二来，打开思路，很多问题（比如语言中的很多问题，例：C++虚函数的实现；内存的分配等）如果从现有的层面想不通，可以深入底层寻其本质，如若能从较底层去理解了原理，那往往很多问题都会迎刃而解。 如图：一是专业课，二为数学基础课。 方框内为 科目，箭头由高层科目指向底层。 由于近期忙于寻找实习与党支部事宜，所以考虑很不全面，如果有问题，恳请指教，共同讨论。后期会不断纠错完善，并加入新的所学知识。 （突然发现汇编真的很有用）]]></content>
+      <categories>
+        <category>计算机系统</category>
+      </categories>
+      <tags>
+        <tag>计算机系统</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[hexo新建菜单流程]]></title>
     <url>%2F2018%2F11%2F06%2Fhexo%E6%96%B0%E5%BB%BA%E8%8F%9C%E5%8D%95%E6%B5%81%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[1.步骤以要 新建 categories 菜单项为例。 1.在命令提示窗口中 输入hexo new page &quot;categories&quot;，此时会提示：Create：\source\categories\index.md 2.打开第一步生成的文件 index.md ，新建 type 属性，并赋值：type：”categories“ 3.在主题配置文件中找到 menu开关：为其赋值为 categories categories: /categories/ || th 4.在命令提示窗口中 输入hexo g即可生成文件，然后 hexo s或hexo d部署到本地或者服务器上即可。 2.原理解释1.第一步中的hexo new page &quot;categories&quot; 是新建模板文件，Hexo 会根据 scaffolds文件夹内相对应的文件来建立文件，例如：$ hexo new photo My Gallery 在执行这行指令时，Hexo 会尝试在 scaffolds文件夹中寻找 photo.md，并根据其内容建立文章。 以 post 模板为例： title: hexo新建菜单流程date: 1541491861000categories:tags: 利用post模板新建的文件，头部会有这四个变量，其中categories和tags变量为空，title变量和date变量是hexo命令中传入的参数。例如：输入 hexo new &quot;test&quot;（若无指定模板则默认为为 post模板）则会生成如下的markdown文件。 title: hexo新建菜单流程date: 2018-11-06 16:11:01categories: tags： 可在模板中使用的变量（即传入的参数&amp;#123; &amp;#125）有： layou：布局 title：文章题目 data：文件建立时间 所以执行完 hexo new page &quot;categories&quot;，此时source文件下会新建\categories\index.md 2.第二步添加 type属性是为了告诉hexo 此按钮是分类按钮，若无此标签点击分类按钮则只会出现一个标题。 3.第三步是在主题menu配置中打开分类按钮.相当于为按钮绑定事件（即：URL） categories: /categories/ || th 也就是说点击此按钮（显示时zh-Hans文件已把categories翻译为中文）会跳转到public文件下的/categorites/index.html 文件上（public为site根目录） 4.输入hexo ghexo会把source中的markdown文件解释到（生成HTML）public文件夹下，其余文件copy到public文件夹下，即:/source/categories/index.md文件会生成为：/public/categories/index.html 同时由于md文件属性type为categories,所以会生成若干个文件夹，每个文件夹以现有的分类名字命名，每个文件夹下包含一个index.html，此文件即为点击相应分类时出现的列表页面。此时点击分类按钮就会访问 /categorites/index.html 即：我们在主题menu配置中为categories变量绑定的URL。 文章参考：https://www.jianshu.com/p/5d5931289c09]]></content>
