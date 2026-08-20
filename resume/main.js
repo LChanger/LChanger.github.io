@@ -1,1 +1,20 @@
-const links=[...document.querySelectorAll('nav a')];const sections=[...document.querySelectorAll('main section[id]')];const toggle=document.querySelector('.menu-toggle');toggle.addEventListener('click',()=>{const open=document.body.classList.toggle('menu-open');toggle.setAttribute('aria-expanded',String(open))});links.forEach(link=>link.addEventListener('click',()=>{document.body.classList.remove('menu-open');toggle.setAttribute('aria-expanded','false')}));const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(!entry.isIntersecting)return;links.forEach(link=>link.classList.toggle('active',link.hash===`#${entry.target.id}`))})},{rootMargin:'-25% 0px -65%'});sections.forEach(section=>observer.observe(section));
+const header = document.querySelector(".header");
+document
+  .querySelector(".nav-toggle")
+  .addEventListener("click", () => header.classList.toggle("open"));
+document
+  .querySelectorAll("nav a")
+  .forEach((a) =>
+    a.addEventListener("click", () => header.classList.remove("open")),
+  );
+const observer = new IntersectionObserver(
+  (entries) =>
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    }),
+  { threshold: 0.08 },
+);
+document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
