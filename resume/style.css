@@ -46,8 +46,10 @@ main { overflow:hidden; }
 .projects-section,.honors-section { max-width:none; background:var(--pale); }
 .projects-section>* ,.honors-section>* { max-width:1180px; margin-left:auto; margin-right:auto; }
 .projects { display:grid; gap:24px; }
-.project-card { padding:34px; border:1px solid #ece8f5; border-radius:15px; background:#fff; box-shadow:0 7px 24px rgba(0,0,0,.055); transition:.25s; }
+.project-card { display:grid; grid-template-columns:140px 1fr; gap:30px; align-items:start; padding:34px; border:1px solid #ece8f5; border-radius:15px; background:#fff; box-shadow:0 7px 24px rgba(0,0,0,.055); transition:.25s; }
 .project-card:hover,.experience-card:hover { transform:translateY(-5px); box-shadow:0 15px 35px rgba(85,25,139,.12); }
+.card-icon { display:grid; place-items:center; width:130px; min-height:100px; padding:14px; border-radius:22px; color:#fff; background:linear-gradient(135deg,var(--purple),var(--violet)); text-align:center; font-size:16px; font-weight:800; line-height:1.45; }
+.card-icon-long { font-size:14px; }
 .tag { margin:0; color:var(--purple); font-size:11px; font-weight:700; letter-spacing:.1em; }
 .project-card h3 { margin:6px 0 10px; font-size:23px; }
 .project-card p:not(.tag),.honor-card p { margin:0; color:var(--muted); line-height:1.8; }
@@ -82,5 +84,5 @@ footer { padding:30px; color:#8a8f98; text-align:center; font-size:12px; }
 @keyframes wave { 0%,60%,100%{transform:rotate(0)} 10%{transform:rotate(14deg)} 20%{transform:rotate(-8deg)} 30%{transform:rotate(14deg)} 40%{transform:rotate(-4deg)} }
 @keyframes morph { 0%,100%{border-radius:58% 42% 48% 52%/42% 52% 48% 58%} 50%{border-radius:43% 57% 57% 43%/55% 43% 57% 45%} }
 @media(max-width:850px) { .header{height:65px}.nav-toggle{display:block}.header nav{display:none;position:absolute;top:65px;left:15px;right:15px;flex-direction:column;padding:12px;border-radius:10px;background:#fff;box-shadow:0 12px 35px rgba(0,0,0,.13)}.header.open nav{display:flex}.hero{grid-template-columns:1fr;padding-top:55px;text-align:center}.socials,.hero-actions{justify-content:center}.hero-visual{min-height:430px;max-width:520px;width:100%;margin:auto}.section#skills{grid-template-columns:1fr;gap:35px}.experience-grid,.honor-grid{grid-template-columns:1fr}.contact{flex-direction:column;text-align:center} }
-@media(max-width:560px) { .hero,.section,.contact{padding-left:20px;padding-right:20px}.hero h1{font-size:48px}.hero-desc{font-size:15px}.hero-visual{min-height:340px}.project-card{padding:25px}.section{padding-top:75px;padding-bottom:75px}.skill-panel{padding:24px}.timeline-item{grid-template-columns:65px 1fr;gap:15px}.timeline:before{left:32px}.dot{left:27px}.school-mark{width:58px;height:58px}.hero-actions{flex-direction:column}.button{width:100%;text-align:center} }
+@media(max-width:560px) { .hero,.section,.contact{padding-left:20px;padding-right:20px}.hero h1{font-size:48px}.hero-desc{font-size:15px}.hero-visual{min-height:340px}.project-card{grid-template-columns:1fr;padding:25px}.card-icon{width:auto;min-height:64px;border-radius:14px}.section{padding-top:75px;padding-bottom:75px}.skill-panel{padding:24px}.timeline-item{grid-template-columns:65px 1fr;gap:15px}.timeline:before{left:32px}.dot{left:27px}.school-mark{width:58px;height:58px}.hero-actions{flex-direction:column}.button{width:100%;text-align:center} }
 @media print { .header,.socials,.hero-actions,.contact,footer{display:none}.hero,.section{min-height:0;padding:30px 20px}.hero-visual{display:none}.reveal{opacity:1;transform:none}.project-card,.experience-card,.honor-card{break-inside:avoid;box-shadow:none} }
