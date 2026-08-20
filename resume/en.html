@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Jinglong Yi, Foundation Model specialist with five years of experience in large language models, search, and recommendation." />
+    <title>Jinglong Yi | Foundation Model Specialist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="english">
+    <header class="header">
+      <a class="logo" href="#home">Jinglong Yi</a><button class="nav-toggle" aria-label="Open navigation">☰</button>
+      <nav><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#honors">Achievements</a><a class="language-switch" href="./">中文</a></nav>
+    </header>
+    <main>
+      <section class="hero reveal" id="home">
+        <div class="hero-copy"><p class="hello">HELLO, I'M</p><h1>Jinglong Yi <span>👋</span></h1><h2>Senior Foundation Model Specialist</h2><p class="hero-desc">M.S. and B.S. in Computer Science from Harbin Institute of Technology, with five years of R&amp;D experience across foundation models, search, and recommendation. My work focuses on large-scale pre-training, model scaling, long-context modeling, and efficient inference.</p><div class="socials"><span title="WeChat">We</span><a href="tel:17863136229" title="Phone">☎</a><a href="/" title="Blog">⌂</a></div><div class="hero-actions"><span class="button">WeChat: Changer-YJL</span></div></div>
+        <div class="hero-visual"><div class="blob"></div><img src="./portrait.jpg" alt="Jinglong Yi by the sea at sunset" /><div class="floating-note"><b>5+</b><span>years in algorithm R&amp;D</span></div></div>
+      </section>
+      <section class="section reveal" id="skills">
+        <div class="section-copy"><p class="kicker">WHAT I DO</p><h2>Build intelligent systems<br />that <span>scale</span></h2><p>End-to-end experience spanning data development, model architecture, distributed training, performance optimization, and production deployment. Experienced in leading teams of 10+ engineers and collaborating on training and inference across clusters with tens of thousands of accelerators.</p></div>
+        <div class="skill-panel"><div class="tech-cloud"><span>Foundation Models</span><span>Transformer</span><span>HSTU</span><span>MoE</span><span>Flash Attention</span><span>Sparse Attention</span><span>KV Cache</span><span>Prefill-Decode Disaggregation</span><span>Scaling Laws</span><span>QLoRA</span><span>Knowledge Distillation</span><span>Chain-of-Thought Prompting</span></div><ul><li>Foundation model pre-training, data pipelines, and downstream adaptation</li><li>Parameter and context scaling for dense and sparse architectures</li><li>Long-context training up to 110K tokens and efficient attention</li><li>Dynamic batching, quantization, kernel fusion, and throughput optimization</li><li>SFT, contrastive learning, multi-task learning, and knowledge transfer</li></ul></div>
+      </section>
+      <section class="section projects-section" id="projects">
+        <div class="section-heading reveal"><p class="kicker">FEATURED WORK</p><h2>Selected Projects</h2><p>Taking ideas from research prototypes to full-scale production, with measurable gains in model quality, computational efficiency, and business outcomes.</p></div>
+        <div class="projects">
+          <article class="project-card reveal"><div><p class="tag">LONG CONTEXT · EFFICIENT ATTENTION</p><h3>Foundation Model for Generative Recommendation</h3><p>Designed a Transformer/HSTU-based long-context model for long-range dependencies, interest exploration, and long-tail behavior in recommendation sequences. Introduced variable-length Flash Attention and dynamic batching to reduce padding overhead.</p><div class="metrics"><span><b>2.2×</b>training throughput</span><span><b>50%</b>lower inference cost</span><span><b>+0.4%</b>online AUC</span></div></div></article>
+          <article class="project-card reveal"><div><p class="tag">PRE-TRAINING · SCALING · LARGE-SCALE TRAINING</p><h3>Foundation Model: Zero to Production</h3><p>Led a seven-person team in building the full data, modeling, training, evaluation, and deployment pipeline. Scaled dense models to 4B parameters, sparse models to over 100 trillion parameters, and training context to 110K tokens.</p><div class="metrics"><span><b>70%</b>compute savings</span><span><b>100T+</b>model scale</span><span><b>Positive ROI</b>at full rollout</span></div></div></article>
+          <article class="project-card reveal"><div><p class="tag">LLM POST-TRAINING · USER UNDERSTANDING</p><h3>Explicit User Profiles for Cold Start</h3><p>Built an end-to-end pipeline from user signals through LLM-based interest reasoning and label generation to downstream retrieval. Applied chain-of-thought prompting, few-shot learning, and Qwen3-based knowledge distillation to improve new and low-activity user experiences.</p><div class="metrics"><span><b>Full</b>production rollout</span><span><b>Multi-product</b>adoption</span><span><b>Significant</b>LT uplift</span></div></div></article>
+        </div>
+      </section>
+      <section class="section experience-section" id="experience">
+        <div class="section-heading reveal"><p class="kicker">EXPERIENCE</p><h2>Professional Experience</h2></div>
+        <div class="experience-grid">
+          <article class="experience-card reveal"><div class="company byte">ByteDance</div><div class="experience-body"><time>Dec 2023 — Present</time><h3>ByteDance · Douyin</h3><h4>Senior Foundation Model Specialist</h4><p class="award">Multiple performance ratings in the top 30%</p><ul><li>Technical lead for long-context foundation models and efficient attention</li><li>Led a seven-person foundation model pre-training and scaling team</li><li>Project lead for LLM post-training and explicit user representation</li><li>Partnered with NVIDIA on Attention, SWA, Fusion Bias, and MoE kernel optimization</li></ul></div></article>
+          <article class="experience-card reveal"><div class="company tencent">Tencent</div><div class="experience-body"><time>Jul 2021 — Dec 2023</time><h3>Tencent</h3><h4>Research Scientist, Algorithms</h4><p class="award">Consistently top 10% · Three consecutive promotions · Department Excellence Award</p><ul><li>Improved precision and recall for video-search intent and entity recognition by 11.2%</li><li>Raised ranking AUC by 2.98% and online watch time by 1.83%</li><li>Introduced multi-vector representations, improving watch time by 2.59% and CTR by 0.52%</li><li>Led a two-person team and contributed four patents</li></ul></div></article>
+        </div>
+      </section>
+      <section class="section education-section" id="education">
+        <div class="section-heading reveal"><p class="kicker">EDUCATION &amp; INTERNSHIPS</p><h2>Education &amp; Early Experience</h2></div>
+        <div class="timeline"><article class="timeline-item reveal"><span class="dot"></span><div class="school-mark">HIT</div><div><h3>Harbin Institute of Technology · M.S.</h3><p>Computer Science and Technology · NLP and Human-Computer Dialogue</p><b>GPA-equivalent score: 90.75 · Top 0.5%</b></div></article><article class="timeline-item reveal"><span class="dot"></span><div class="school-mark">HIT</div><div><h3>Harbin Institute of Technology · B.S.</h3><p>Computer Science and Technology</p><b>GPA-equivalent score: 88.98 · Top 4%</b></div></article><article class="timeline-item reveal"><span class="dot"></span><div class="school-mark ali">A</div><div><h3>Alibaba · Search and Recommendation</h3><p>Recommendation Algorithm Engineer Intern · Jul–Sep 2020</p><b>Raised OCR copy acceptance from 90% to 95% and online exposure by 7%</b></div></article><article class="timeline-item reveal"><span class="dot"></span><div class="school-mark netease">N</div><div><h3>NetEase · Fuxi AI Lab</h3><p>Algorithm Engineer Intern · Apr–Jul 2020</p><b>Improved slot-filling accuracy from 45% to 86%</b></div></article></div>
+      </section>
+      <section class="section honors-section" id="honors">
+        <div class="section-heading reveal"><p class="kicker">ACHIEVEMENTS</p><h2>Achievements &amp; Recognition</h2></div>
+        <div class="honor-grid"><article class="honor-card reveal"><div>🏆</div><h3>Competitions</h3><p>National Second Prize in the China Undergraduate Mathematical Contest in Modeling; ranked 18/163 and 20/93 in the CCF Language and Intelligence Technology Competition, and 16/256 in the JD Dialogue Challenge.</p></article><article class="honor-card reveal"><div>🎓</div><h3>Honors</h3><p>Over RMB 200K in scholarships; two national, one provincial, and more than twenty university-level awards.</p></article><article class="honor-card reveal"><div>📄</div><h3>Research Output</h3><p>First author of two top-tier conference papers and two journal articles; six patents, including three as first inventor; one software copyright.</p></article></div>
+      </section>
+      <section class="contact reveal"><div><p class="kicker">LET'S CONNECT</p><h2>Let's talk</h2><p>Foundation models, search and recommendation, long-context modeling, and efficient inference.</p></div><div><span class="button">WeChat: Changer-YJL</span><a class="phone" href="tel:17863136229">+86 178 6313 6229</a></div></section>
+    </main>
+    <footer>Made with focus by Jinglong Yi · 2026</footer><script src="./main.js"></script>
+  </body>
+</html>
